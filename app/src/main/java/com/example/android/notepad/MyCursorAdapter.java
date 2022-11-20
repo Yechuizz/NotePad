@@ -21,13 +21,6 @@ public class MyCursorAdapter extends SimpleCursorAdapter {
         super.bindView(view, context, cursor);
         //Get the color data corresponding to the note list from the cursor read from the database, and set the note color
         int x = cursor.getInt(cursor.getColumnIndexOrThrow(NotePad.Notes.COLUMN_NAME_BACK_COLOR));
-        /**
-         * white 255 255 255
-         * yellow 247 216 133
-         * blue 165 202 237
-         * green 161 214 174
-         * red 244 149 133
-         */
         switch (x){
             case NotePad.Notes.YELLOW_COLOR:
                 view.setBackgroundColor(Color.rgb(247, 216, 133));

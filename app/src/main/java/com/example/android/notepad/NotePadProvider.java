@@ -532,16 +532,10 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
             values = new ContentValues();
         }
 
-        // Gets the current system time in milliseconds
         Long now = Long.valueOf(System.currentTimeMillis());
-
-        //修改 需要将毫秒数转换为时间的形式yy.MM.dd HH:mm:ss
         Date date = new Date(now);
-
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
-
         String dateFormat = simpleDateFormat.format(date);
-        //转换为yy.MM.dd HH:mm:ss形式的时间
 
         if(values.containsKey(NotePad.Notes.COLUMN_NAME_CREATE_DATE) == false) {
             values.put(NotePad.Notes.COLUMN_NAME_CREATE_DATE, dateFormat);

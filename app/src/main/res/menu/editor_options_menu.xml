@@ -19,9 +19,9 @@
         android:showAsAction="always">
     </item>
     <item
-        android:id="@+id/ic_add_photo"
-        android:title="add voice"
-        android:icon="@drawable/ic_add_photo"
+        android:id="@+id/ic_note_out"
+        android:title="note export"
+        android:icon="@drawable/ic_note_out"
         android:showAsAction="always">
     </item>
 </menu>

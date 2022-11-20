@@ -559,15 +559,16 @@ public class NoteEditor extends Activity {
         case R.id.ic_bg_color:
             changeNoteColor();
             break;
-        case R.id.ic_add_photo:
+        case R.id.ic_note_out:
             try {
-            FileOutputStream fileout=openFileOutput(creatFileName(), MODE_PRIVATE);
-            OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
-            outputWriter.write(mOriginalContent);
-            outputWriter.close();
-            //display file saved message
-            Toast.makeText(getBaseContext(), "File saved successfully!",
-                    Toast.LENGTH_SHORT).show();
+                String fileName = createFileName();
+                FileOutputStream fileout=openFileOutput(fileName, MODE_PRIVATE);
+                OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
+                outputWriter.write(mOriginalContent);
+                outputWriter.close();
+                //display file saved message
+                Toast.makeText(getBaseContext(), "File saved successfully!The file is "+fileName,
+                        Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -576,13 +577,10 @@ public class NoteEditor extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public String  creatFileName(){
+    public String  createFileName(){
         Random random = new Random();
         //文件夹名字的长度
-        int length  = 10;//default
-//		for(int i = 0; i <30; i++){
-//			int a  = random.nextInt(10);
-//			System.out.println(a);
+        int length  = 10;
         String numstr = "123456789";
         String chastr_b = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
         String chastr_s = "abcdefghijklmnopqrstuvwxyz";

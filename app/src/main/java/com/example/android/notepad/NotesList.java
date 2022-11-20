@@ -68,7 +68,7 @@ public class NotesList extends ListActivity {
             NotePad.Notes._ID, // 0
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
             NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, // 2
-            NotePad.Notes.COLUMN_NAME_BACK_COLOR,
+            NotePad.Notes.COLUMN_NAME_BACK_COLOR,  //3
     };
 
     /**

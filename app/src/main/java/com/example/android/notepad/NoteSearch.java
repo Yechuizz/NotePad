@@ -26,7 +26,8 @@ public class NoteSearch extends Activity implements SearchView.OnQueryTextListen
     private static final String[] PROJECTION = new String[]{
             NotePad.Notes._ID, // 0
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
-            NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE //时间
+            NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, //2
+            NotePad.Notes.COLUMN_NAME_BACK_COLOR,  //3
     };
 
     public boolean onQueryTextSubmit(String query) {
@@ -76,7 +77,7 @@ public class NoteSearch extends Activity implements SearchView.OnQueryTextListen
         // The names of the cursor columns to display in the view, initialized to the title column
         String[] dataColumns = {
                 NotePad.Notes.COLUMN_NAME_TITLE,
-                NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE
+                NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
         } ;
         // The view IDs that will display the cursor columns, initialized to the TextView in
         // noteslist_item.xml
@@ -84,15 +85,23 @@ public class NoteSearch extends Activity implements SearchView.OnQueryTextListen
                 android.R.id.text1,
                 android.R.id.text2
         };
-        // Creates the backing adapter for the ListView.
-        SimpleCursorAdapter adapter
-                = new SimpleCursorAdapter(
-                this,                             // The Context for the ListView
-                R.layout.noteslist_item,         // Points to the XML for a list item
-                cursor,                           // The cursor to get items from
+        //Creates the backing adapter for the ListView.
+//        SimpleCursorAdapter adapter
+//                = new SimpleCursorAdapter(
+//                this,                             // The Context for the ListView
+//                R.layout.noteslist_item,         // Points to the XML for a list item
+//                cursor,                           // The cursor to get items from
+//                dataColumns,
+//                viewIDs
+//        );
+        MyCursorAdapter adapter = new MyCursorAdapter(
+                this,
+                R.layout.noteslist_item,
+                cursor,
                 dataColumns,
                 viewIDs
         );
+
         // Sets the ListView's adapter to be the cursor adapter that was just created.
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

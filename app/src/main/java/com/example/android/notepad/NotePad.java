@@ -157,7 +157,7 @@ public final class NotePad {
         public static final int YELLOW_COLOR = 1; //yellow
         public static final int BLUE_COLOR = 2; //blue
         public static final int GREEN_COLOR = 3; //green
-        public static final int PINK_COLOR = 4; //red
+        public static final int PINK_COLOR = 4; //pink
 
     }
 }
